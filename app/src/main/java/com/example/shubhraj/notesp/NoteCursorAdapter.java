@@ -40,7 +40,7 @@ public class NoteCursorAdapter extends CursorAdapter {
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         // Inflate a list item view using the layout specified in list_item.xml
         LayoutInflater inflater = LayoutInflater.from(context);
-        return inflater.inflate(R.layout.fragment_note_list, parent, false);
+        return inflater.inflate(R.layout.list_item, parent, false);
         //return LayoutInflater.from(context).inflate(R.layout.fragment_note_list, parent, false);
     }
 
@@ -58,7 +58,7 @@ public class NoteCursorAdapter extends CursorAdapter {
     public void bindView(View view, Context context, Cursor cursor)
     {
         // Find individual views that we want to modify in the list item layout
-        TextView nameTextView = (TextView) view.findViewById(R.id.note);
+        TextView nameTextView = (TextView) view.findViewById(R.id.item);
 
         // Find the columns of pet attributes that we're interested in
         int nameColumnIndex = cursor.getColumnIndex(NoteEntry.COLUMN_NOTE_CONTENT);
