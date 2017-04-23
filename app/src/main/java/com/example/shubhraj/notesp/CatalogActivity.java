@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.net.Uri;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 
 public class CatalogActivity extends AppCompatActivity implements LoginFragment.OnLoginButton,
         NoteListFragment.OnNoteListListener, EditorFragment.OnEditorExit
@@ -45,7 +44,6 @@ public class CatalogActivity extends AppCompatActivity implements LoginFragment.
         lFragment.setArguments(bundle);
         transaction.add(R.id.list_container,lFragment);
         transaction.commit();
-
     }
 
 
@@ -62,7 +60,8 @@ public class CatalogActivity extends AppCompatActivity implements LoginFragment.
     }
 
     @Override
-    public void onNoteListListener(Uri uri) {
+    public void onNoteListListener(Uri uri)
+    {
         String listFragment = uri.toString();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if(listFragment.equals("NEW"))
@@ -95,5 +94,6 @@ public class CatalogActivity extends AppCompatActivity implements LoginFragment.
         NoteListFragment listFragment = new NoteListFragment();
         transaction.replace(R.id.list_container,listFragment);
         transaction.commit();
+        setTitle(R.string.app_name);
     }
 }
